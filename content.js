@@ -8,6 +8,9 @@
     var s = document.createElement("script");
     s.onload = function injectScriptOnLoadCb() {
       console.log("Injected " + pathToScript);
+
+      setTimeout(function() { console.log("window.injectMe = " + window.injectMe + ". Should be 'true' but isn't."); }, 1000);
+
       this.parentNode.removeChild(this);
     };
     s.src = chrome.extension.getURL(pathToScript);
