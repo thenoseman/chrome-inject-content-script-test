@@ -9,7 +9,11 @@
     s.onload = function injectScriptOnLoadCb() {
       console.log("Injected " + pathToScript);
 
-      setTimeout(function() { console.log("window.injectMe = " + window.injectMe + ". Should be 'true' but isn't."); }, 1000);
+      // Checking via the DOM works!
+      setTimeout(function() {
+        var h = document.querySelector("html").dataset;
+        console.log(h);
+      }, 1000);
 
       this.parentNode.removeChild(this);
     };
